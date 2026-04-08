@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <MainLayout>
+      <MainLayout showFooter={false}>
         <Home />
       </MainLayout>
     </ThemeProvider>
