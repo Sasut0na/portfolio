@@ -45,31 +45,29 @@ const Navbar: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-
-      const sections = navItems.map((item) => item.href.replace("#", ""));
-      for (const sectionId of sections.reverse()) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 100) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
+    const resolveHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      const valid = navItems.some((item) => item.href === `#${hash}`);
+      setActiveSection(valid ? hash : "hero");
     };
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 8);
+    };
+
+    resolveHash();
+    window.addEventListener("hashchange", resolveHash);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("hashchange", resolveHash);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollTo = (href: string) => {
     const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    window.location.hash = id;
+    setActiveSection(id);
     setMobileOpen(false);
   };
 
@@ -80,16 +78,17 @@ const Navbar: React.FC = () => {
           position="fixed"
           sx={{
             background: scrolled
-              ? "rgba(10, 10, 26, 0.95)"
+              ? "rgba(4, 14, 30, 0.82)"
               : "transparent",
-            backdropFilter: scrolled ? "blur(20px)" : "none",
+            backdropFilter: scrolled ? "blur(12px)" : "none",
             borderBottom: scrolled
-              ? "1px solid rgba(99, 102, 241, 0.2)"
+              ? "1px solid rgba(56, 189, 248, 0.16)"
               : "none",
             boxShadow: scrolled
-              ? "0 4px 30px rgba(0,0,0,0.4)"
+              ? "0 6px 22px rgba(0,0,0,0.25)"
               : "none",
             transition: "all 0.4s ease",
+            p:3
           }}
         >
           <Toolbar sx={{ justifyContent: "space-between", py: 1 }}>
@@ -113,11 +112,11 @@ const Navbar: React.FC = () => {
                     width: 36,
                     height: 36,
                     borderRadius: "10px",
-                    background: "linear-gradient(135deg, #6366f1, #7c3aed)",
+                    background: "rgba(14,165,233,0.16)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    boxShadow: "0 4px 15px rgba(99,102,241,0.5)",
+                    border: "1px solid rgba(56,189,248,0.22)",
                   }}
                 >
                   <CodeIcon sx={{ fontSize: 20, color: "#fff" }} />
@@ -125,14 +124,12 @@ const Navbar: React.FC = () => {
                 <Typography
                   variant="h6"
                   sx={{
-                    background: "linear-gradient(135deg, #818cf8, #c4b5fd)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
+                    color: "#e2e8f0",
                     fontWeight: 800,
                     letterSpacing: "-0.02em",
                   }}
                 >
-                  JAS.dev
+                  JAS
                 </Typography>
               </Box>
             </motion.div>
@@ -148,11 +145,11 @@ const Navbar: React.FC = () => {
                   sx={{
                     display: "flex",
                     gap: 0.5,
-                    background: "rgba(255,255,255,0.04)",
+                    background: "rgba(255,255,255,0.03)",
                     backdropFilter: "blur(10px)",
                     borderRadius: "50px",
                     padding: "4px",
-                    border: "1px solid rgba(99,102,241,0.15)",
+                    border: "1px solid rgba(56,189,248,0.14)",
                   }}
                 >
                   {navItems.map((item) => {
@@ -167,18 +164,18 @@ const Navbar: React.FC = () => {
                           py: 0.8,
                           color: isActive ? "#fff" : "rgba(255,255,255,0.65)",
                           background: isActive
-                            ? "linear-gradient(135deg, #6366f1, #7c3aed)"
+                            ? "rgba(14,165,233,0.28)"
                             : "transparent",
                           boxShadow: isActive
-                            ? "0 4px 15px rgba(99,102,241,0.4)"
+                            ? "none"
                             : "none",
                           fontSize: "0.85rem",
                           fontWeight: isActive ? 600 : 500,
                           transition: "all 0.3s ease",
                           "&:hover": {
                             background: isActive
-                              ? "linear-gradient(135deg, #6366f1, #7c3aed)"
-                              : "rgba(99,102,241,0.1)",
+                              ? "rgba(14,165,233,0.28)"
+                              : "rgba(56,189,248,0.1)",
                             color: "#fff",
                             transform: "none",
                           },
@@ -202,9 +199,9 @@ const Navbar: React.FC = () => {
                 <IconButton
                   onClick={() => setMobileOpen(true)}
                   sx={{
-                    color: "#818cf8",
-                    background: "rgba(99,102,241,0.1)",
-                    "&:hover": { background: "rgba(99,102,241,0.2)" },
+                    color: "#7dd3fc",
+                    background: "rgba(56,189,248,0.12)",
+                    "&:hover": { background: "rgba(56,189,248,0.22)" },
                   }}
                 >
                   <MenuIcon />
@@ -232,9 +229,9 @@ const Navbar: React.FC = () => {
         PaperProps={{
           sx: {
             width: 280,
-            background: "rgba(10, 10, 30, 0.98)",
+            background: "rgba(4, 14, 30, 0.94)",
             backdropFilter: "blur(20px)",
-            borderLeft: "1px solid rgba(99,102,241,0.2)",
+            borderLeft: "1px solid rgba(56,189,248,0.16)",
           },
         }}
       >
@@ -250,17 +247,15 @@ const Navbar: React.FC = () => {
             <Typography
               variant="h6"
               sx={{
-                background: "linear-gradient(135deg, #818cf8, #c4b5fd)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                color: "#e2e8f0",
                 fontWeight: 800,
               }}
             >
-              JAS.dev
+              JAS
             </Typography>
             <IconButton
               onClick={() => setMobileOpen(false)}
-              sx={{ color: "#818cf8" }}
+              sx={{ color: "#7dd3fc" }}
             >
               <CloseIcon />
             </IconButton>
@@ -282,14 +277,14 @@ const Navbar: React.FC = () => {
                       cursor: "pointer",
                       background:
                         activeSection === item.href.replace("#", "")
-                          ? "rgba(99,102,241,0.15)"
+                          ? "rgba(56,189,248,0.14)"
                           : "transparent",
                       border:
                         activeSection === item.href.replace("#", "")
-                          ? "1px solid rgba(99,102,241,0.3)"
+                          ? "1px solid rgba(56,189,248,0.34)"
                           : "1px solid transparent",
                       "&:hover": {
-                        background: "rgba(99,102,241,0.1)",
+                        background: "rgba(56,189,248,0.1)",
                       },
                     }}
                   >
@@ -302,7 +297,7 @@ const Navbar: React.FC = () => {
                             : 500,
                         color:
                           activeSection === item.href.replace("#", "")
-                            ? "#818cf8"
+                            ? "#7dd3fc"
                             : "rgba(255,255,255,0.8)",
                       }}
                     />
