@@ -5,76 +5,67 @@ import Footer from "../components/Footer";
 
 interface MainLayoutProps {
   children: React.ReactNode;
+  showFooter?: boolean;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, showFooter = true }) => {
   return (
     <Box
       sx={{
         minHeight: "100vh",
-        background: "#0a0a1a",
+        background:
+          "radial-gradient(900px 520px at 10% -20%, rgba(56,189,248,0.12), transparent 58%), radial-gradient(760px 460px at 90% 8%, rgba(245,158,11,0.1), transparent 62%), linear-gradient(170deg, #020617 0%, #061224 55%, #0b1220 100%)",
         position: "relative",
         overflowX: "hidden",
       }}
     >
-      {/* Global ambient background */}
+      {/* Edge vignette for depth */}
       <Box
         sx={{
           position: "fixed",
           inset: 0,
           background:
-            "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 80% 80%, rgba(124,58,237,0.08) 0%, transparent 50%)",
+            "radial-gradient(circle at 50% 42%, transparent 34%, rgba(2,6,23,0.34) 100%)",
           pointerEvents: "none",
           zIndex: 0,
         }}
       />
 
-      {/* Animated Orbs */}
+      {/* Soft ambient lights */}
       <Box
         sx={{
           position: "fixed",
-          top: "15%",
-          right: "5%",
-          width: "400px",
-          height: "400px",
+          top: "2%",
+          right: "8%",
+          width: { xs: "220px", md: "300px" },
+          height: { xs: "220px", md: "300px" },
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)",
-          filter: "blur(40px)",
+            "radial-gradient(circle, rgba(56,189,248,0.16) 0%, transparent 72%)",
+          filter: "blur(70px)",
           pointerEvents: "none",
           zIndex: 0,
-          animation: "float1 8s ease-in-out infinite",
-          "@keyframes float1": {
-            "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-            "33%": { transform: "translate(-30px, -20px) scale(1.05)" },
-            "66%": { transform: "translate(20px, 10px) scale(0.95)" },
-          },
         }}
       />
       <Box
         sx={{
           position: "fixed",
-          bottom: "20%",
-          left: "5%",
-          width: "300px",
-          height: "300px",
+          bottom: "6%",
+          left: "6%",
+          width: { xs: "200px", md: "260px" },
+          height: { xs: "200px", md: "260px" },
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%)",
-          filter: "blur(40px)",
+            "radial-gradient(circle, rgba(245,158,11,0.14) 0%, transparent 74%)",
+          filter: "blur(66px)",
           pointerEvents: "none",
           zIndex: 0,
-          animation: "float2 10s ease-in-out infinite",
-          "@keyframes float2": {
-            "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-            "50%": { transform: "translate(20px, -30px) scale(1.1)" },
-          },
         }}
       />
 
       <Navbar />
       <Box sx={{ position: "relative", zIndex: 1 }}>{children}</Box>
-      <Footer />
+      {showFooter ? <Footer /> : null}
     </Box>
   );
 };
