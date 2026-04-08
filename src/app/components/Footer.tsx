@@ -34,7 +34,7 @@ const socialLinks = [
     icon: <EmailIcon />,
     label: "Email",
     href: "mailto:jhonace.sasutona@email.com",
-    color: "#6366f1",
+    color: "#38bdf8",
   },
   {
     icon: <FacebookIcon />,
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
       component="footer"
       sx={{
         background:
-          "linear-gradient(180deg, rgba(10,10,26,0) 0%, rgba(6,6,20,1) 30%)",
+          "linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.85) 30%, rgba(3,10,28,0.98) 100%)",
         position: "relative",
         overflow: "hidden",
         pt: 10,
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
           right: "10%",
           height: "1px",
           background:
-            "linear-gradient(90deg, transparent, rgba(99,102,241,0.6), rgba(124,58,237,0.6), transparent)",
+            "linear-gradient(90deg, transparent, rgba(56,189,248,0.6), rgba(245,158,11,0.55), transparent)",
         }}
       />
 
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
           width: "600px",
           height: "300px",
           background:
-            "radial-gradient(ellipse, rgba(99,102,241,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(56,189,248,0.13) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -120,11 +120,11 @@ const Footer: React.FC = () => {
                     width: 44,
                     height: 44,
                     borderRadius: "12px",
-                    background: "linear-gradient(135deg, #6366f1, #7c3aed)",
+                    background: "linear-gradient(135deg, #0ea5e9, #0891b2)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    boxShadow: "0 4px 20px rgba(99,102,241,0.4)",
+                    boxShadow: "0 4px 20px rgba(14,165,233,0.35)",
                   }}
                 >
                   <CodeIcon sx={{ color: "#fff", fontSize: 24 }} />
@@ -132,13 +132,13 @@ const Footer: React.FC = () => {
                 <Typography
                   variant="h5"
                   sx={{
-                    background: "linear-gradient(135deg, #818cf8, #c4b5fd)",
+                    background: "linear-gradient(135deg, #bae6fd, #fef3c7)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     fontWeight: 800,
                   }}
                 >
-                  JAS.dev
+                  JAS
                 </Typography>
               </Box>
               <Typography
@@ -160,17 +160,17 @@ const Footer: React.FC = () => {
                       sx={{
                         color: "rgba(255,255,255,0.5)",
                         background: "rgba(255,255,255,0.05)",
-                        border: "1px solid rgba(99,102,241,0.15)",
+                        border: "1px solid rgba(56,189,248,0.2)",
                         borderRadius: "10px",
                         width: 40,
                         height: 40,
                         transition: "all 0.3s ease",
                         "&:hover": {
                           color: social.color,
-                          background: "rgba(99,102,241,0.15)",
-                          border: "1px solid rgba(99,102,241,0.4)",
+                          background: "rgba(56,189,248,0.16)",
+                          border: "1px solid rgba(56,189,248,0.4)",
                           transform: "translateY(-3px)",
-                          boxShadow: `0 8px 20px rgba(99,102,241,0.3)`,
+                          boxShadow: `0 8px 20px rgba(14,165,233,0.28)`,
                         },
                       }}
                     >
@@ -194,7 +194,7 @@ const Footer: React.FC = () => {
                 variant="subtitle1"
                 sx={{
                   fontWeight: 700,
-                  color: "#818cf8",
+                  color: "#7dd3fc",
                   mb: 2.5,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
@@ -216,7 +216,7 @@ const Footer: React.FC = () => {
                       fontWeight: 400,
                       textTransform: "none",
                       "&:hover": {
-                        color: "#818cf8",
+                        color: "#7dd3fc",
                         background: "transparent",
                         transform: "translateX(5px)",
                       },
@@ -242,7 +242,7 @@ const Footer: React.FC = () => {
                 variant="subtitle1"
                 sx={{
                   fontWeight: 700,
-                  color: "#818cf8",
+                  color: "#7dd3fc",
                   mb: 2.5,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
@@ -328,23 +328,7 @@ const Footer: React.FC = () => {
             Philippines
           </Typography>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-            <IconButton
-              onClick={scrollToTop}
-              sx={{
-                background: "linear-gradient(135deg, #6366f1, #7c3aed)",
-                color: "#fff",
-                width: 44,
-                height: 44,
-                borderRadius: "12px",
-                boxShadow: "0 4px 15px rgba(99,102,241,0.4)",
-                "&:hover": {
-                  background: "linear-gradient(135deg, #4f46e5, #6d28d9)",
-                  boxShadow: "0 8px 25px rgba(99,102,241,0.6)",
-                },
-              }}
-            >
-              <ArrowUpwardIcon />
-            </IconButton>
+            
           </motion.div>
         </Box>
       </Box>
