@@ -43,7 +43,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Reservation System",
-    subtitle: "Full-Stack Web Application",
+    subtitle: " Web Application",
     description:
       "A comprehensive online reservation and booking management system built for restaurants, hotels, and service providers.",
     longDescription:
@@ -156,7 +156,7 @@ const ProjectsSection: React.FC = () => {
           width: "400px",
           height: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
         }}
@@ -175,9 +175,9 @@ const ProjectsSection: React.FC = () => {
               label="My Projects"
               size="small"
               sx={{
-                background: "rgba(99,102,241,0.12)",
-                border: "1px solid rgba(99,102,241,0.35)",
-                color: "#818cf8",
+                background: "rgba(56,189,248,0.12)",
+                border: "1px solid rgba(56,189,248,0.35)",
+                color: "#7dd3fc",
                 fontWeight: 600,
                 mb: 2,
                 fontSize: "0.8rem",
@@ -200,7 +200,7 @@ const ProjectsSection: React.FC = () => {
               sx={{
                 width: 60,
                 height: 3,
-                background: "linear-gradient(90deg, #6366f1, #7c3aed)",
+                background: "linear-gradient(90deg, #0ea5e9, #f59e0b)",
                 mx: "auto",
                 borderRadius: "2px",
                 mb: 2,
@@ -242,22 +242,22 @@ const ProjectsSection: React.FC = () => {
                   color: activeFilter === filter ? "#fff" : "rgba(255,255,255,0.55)",
                   background:
                     activeFilter === filter
-                      ? "linear-gradient(135deg, #6366f1, #7c3aed)"
+                      ? "linear-gradient(135deg, #0ea5e9, #0891b2)"
                       : "rgba(255,255,255,0.04)",
                   border:
                     activeFilter === filter
                       ? "none"
-                      : "1px solid rgba(99,102,241,0.2)",
+                      : "1px solid rgba(56,189,248,0.25)",
                   boxShadow:
                     activeFilter === filter
-                      ? "0 4px 15px rgba(99,102,241,0.4)"
+                      ? "0 4px 15px rgba(14,165,233,0.35)"
                       : "none",
                   transition: "all 0.3s ease",
                   "&:hover": {
                     background:
                       activeFilter === filter
-                        ? "linear-gradient(135deg, #6366f1, #7c3aed)"
-                        : "rgba(99,102,241,0.1)",
+                        ? "linear-gradient(135deg, #0ea5e9, #0891b2)"
+                        : "rgba(56,189,248,0.12)",
                     color: "#fff",
                     transform: "none",
                   },

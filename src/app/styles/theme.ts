@@ -4,24 +4,24 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#6366f1",
-      light: "#818cf8",
-      dark: "#4338ca",
+      main: "#0ea5e9",
+      light: "#38bdf8",
+      dark: "#0369a1",
       contrastText: "#ffffff",
     },
     secondary: {
-      main: "#7c3aed",
-      light: "#a78bfa",
-      dark: "#5b21b6",
+      main: "#f59e0b",
+      light: "#fbbf24",
+      dark: "#b45309",
       contrastText: "#ffffff",
     },
     background: {
-      default: "#0a0a1a",
-      paper: "rgba(15, 15, 35, 0.85)",
+      default: "#020617",
+      paper: "rgba(8, 20, 42, 0.85)",
     },
     text: {
       primary: "#f1f5f9",
-      secondary: "#94a3b8",
+      secondary: "#9fb0c8",
     },
     info: {
       main: "#38bdf8",
@@ -37,16 +37,19 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Manrope", "Segoe UI", sans-serif',
     h1: {
+      fontFamily: '"Sora", "Manrope", sans-serif',
       fontWeight: 800,
       letterSpacing: "-0.02em",
     },
     h2: {
+      fontFamily: '"Sora", "Manrope", sans-serif',
       fontWeight: 700,
       letterSpacing: "-0.01em",
     },
     h3: {
+      fontFamily: '"Sora", "Manrope", sans-serif',
       fontWeight: 700,
     },
     h4: {
@@ -79,20 +82,20 @@ const theme = createTheme({
           transition: "all 0.3s ease",
         },
         contained: {
-          background: "linear-gradient(135deg, #6366f1, #7c3aed)",
-          boxShadow: "0 4px 24px rgba(99, 102, 241, 0.4)",
+          background: "#0ea5e9",
+          boxShadow: "none",
           "&:hover": {
-            background: "linear-gradient(135deg, #4f46e5, #6d28d9)",
-            boxShadow: "0 8px 32px rgba(99, 102, 241, 0.6)",
-            transform: "translateY(-2px)",
+            background: "#0284c7",
+            boxShadow: "none",
+            transform: "none",
           },
         },
         outlined: {
-          borderColor: "rgba(99, 102, 241, 0.6)",
+          borderColor: "rgba(56, 189, 248, 0.55)",
           "&:hover": {
-            borderColor: "#6366f1",
-            background: "rgba(99, 102, 241, 0.1)",
-            transform: "translateY(-2px)",
+            borderColor: "#38bdf8",
+            background: "rgba(56, 189, 248, 0.1)",
+            transform: "none",
           },
         },
       },
@@ -100,9 +103,9 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          background: "rgba(15, 15, 40, 0.7)",
+          background: "rgba(7, 18, 38, 0.72)",
           backdropFilter: "blur(20px)",
-          border: "1px solid rgba(99, 102, 241, 0.15)",
+          border: "1px solid rgba(56, 189, 248, 0.2)",
           borderRadius: "20px",
           transition: "all 0.4s ease",
         },
@@ -115,13 +118,13 @@ const theme = createTheme({
             borderRadius: "12px",
             background: "rgba(255,255,255,0.03)",
             "& fieldset": {
-              borderColor: "rgba(99, 102, 241, 0.25)",
+              borderColor: "rgba(56, 189, 248, 0.24)",
             },
             "&:hover fieldset": {
-              borderColor: "rgba(99, 102, 241, 0.5)",
+              borderColor: "rgba(56, 189, 248, 0.55)",
             },
             "&.Mui-focused fieldset": {
-              borderColor: "#6366f1",
+              borderColor: "#0ea5e9",
             },
           },
         },
@@ -140,21 +143,21 @@ const theme = createTheme({
         root: {
           borderRadius: "10px",
           height: "8px",
-          background: "rgba(99, 102, 241, 0.15)",
+          background: "rgba(148, 163, 184, 0.2)",
         },
         bar: {
           borderRadius: "10px",
-          background: "linear-gradient(90deg, #6366f1, #7c3aed)",
+          background: "linear-gradient(90deg, #0ea5e9, #f59e0b)",
         },
       },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
-          background: "rgba(10, 10, 26, 0.85)",
-          backdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(99, 102, 241, 0.15)",
-          boxShadow: "0 4px 30px rgba(0,0,0,0.3)",
+          background: "rgba(3, 12, 32, 0.8)",
+          backdropFilter: "blur(12px)",
+          borderBottom: "1px solid rgba(56, 189, 248, 0.16)",
+          boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
         },
       },
     },

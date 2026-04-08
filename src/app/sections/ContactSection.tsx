@@ -127,7 +127,7 @@ const ContactSection: React.FC = () => {
         position: "relative",
         overflow: "hidden",
         background:
-          "linear-gradient(180deg, transparent 0%, rgba(15,15,35,0.4) 50%, transparent 100%)",
+          "linear-gradient(180deg, transparent 0%, rgba(2,6,23,0.18) 50%, transparent 100%)",
       }}
     >
       {/* BG accents */}
@@ -139,7 +139,7 @@ const ContactSection: React.FC = () => {
           width: "500px",
           height: "500px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 70%)",
           filter: "blur(80px)",
           pointerEvents: "none",
         }}
@@ -152,7 +152,7 @@ const ContactSection: React.FC = () => {
           width: "400px",
           height: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
         }}
@@ -171,9 +171,9 @@ const ContactSection: React.FC = () => {
               label="Contact"
               size="small"
               sx={{
-                background: "rgba(99,102,241,0.12)",
-                border: "1px solid rgba(99,102,241,0.35)",
-                color: "#818cf8",
+                background: "rgba(56,189,248,0.12)",
+                border: "1px solid rgba(56,189,248,0.35)",
+                color: "#7dd3fc",
                 fontWeight: 600,
                 mb: 2,
                 fontSize: "0.8rem",
@@ -196,7 +196,7 @@ const ContactSection: React.FC = () => {
               sx={{
                 width: 60,
                 height: 3,
-                background: "linear-gradient(90deg, #6366f1, #7c3aed)",
+                background: "linear-gradient(90deg, #0ea5e9, #f59e0b)",
                 mx: "auto",
                 borderRadius: "2px",
                 mb: 2,
