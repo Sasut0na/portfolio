@@ -15,7 +15,8 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { motion } from "motion/react";
 import CustomCard from "../components/CustomCard";
-import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+
+const profileImage = "/profile.png";
 
 const timeline = [
   {
@@ -48,10 +49,34 @@ const timeline = [
 ];
 
 const highlights = [
-  { icon: "🚀", label: "Fast Learner", desc: "Quickly adapts to new technologies" },
-  { icon: "🎯", label: "Detail-Oriented", desc: "Pixel-perfect implementations" },
-  { icon: "🤝", label: "Team Player", desc: "Collaborative & communicative" },
-  { icon: "💡", label: "Problem Solver", desc: "Creative solutions to complex challenges" },
+  {
+    icon: "🚀",
+    label: "Fast Learner",
+    desc: "Quickly adapts to new technologies",
+    tone: "#60a5fa",
+    stat: "Rapid onboarding",
+  },
+  {
+    icon: "🎯",
+    label: "Detail-Oriented",
+    desc: "Pixel-perfect implementations",
+    tone: "#a78bfa",
+    stat: "Precision-first",
+  },
+  {
+    icon: "🤝",
+    label: "Team Player",
+    desc: "Collaborative & communicative",
+    tone: "#34d399",
+    stat: "Cross-team delivery",
+  },
+  {
+    icon: "💡",
+    label: "Problem Solver",
+    desc: "Creative solutions to complex challenges",
+    tone: "#f59e0b",
+    stat: "Outcome focused",
+  },
 ];
 
 const AboutSection: React.FC = () => {
@@ -73,7 +98,7 @@ const AboutSection: React.FC = () => {
           width: "500px",
           height: "500px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(56,189,248,0.12) 0%, transparent 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
         }}
@@ -92,9 +117,9 @@ const AboutSection: React.FC = () => {
               label="About Me"
               size="small"
               sx={{
-                background: "rgba(99,102,241,0.12)",
-                border: "1px solid rgba(99,102,241,0.35)",
-                color: "#818cf8",
+                background: "rgba(56,189,248,0.12)",
+                border: "1px solid rgba(56,189,248,0.35)",
+                color: "#7dd3fc",
                 fontWeight: 600,
                 mb: 2,
                 fontSize: "0.8rem",
@@ -118,7 +143,7 @@ const AboutSection: React.FC = () => {
               sx={{
                 width: 60,
                 height: 3,
-                background: "linear-gradient(90deg, #6366f1, #7c3aed)",
+                background: "linear-gradient(90deg, #0ea5e9, #f59e0b)",
                 mx: "auto",
                 borderRadius: "2px",
               }}
@@ -128,46 +153,34 @@ const AboutSection: React.FC = () => {
 
         <Grid container spacing={4} alignItems="stretch">
           {/* Left: Profile & Bio */}
-          <Grid size={{ xs: 12, md: 5 }}>
+          <Grid size={{ xs: 12, md: 5 }} sx={{ display: "flex" }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              style={{ height: "100%" }}
+              style={{ height: "100%", width: "100%" }}
             >
-              <CustomCard gradient>
-                <Box sx={{ textAlign: "center", mb: 3 }}>
-                  <Box sx={{ position: "relative", display: "inline-block", mb: 2 }}>
-                    <Avatar
-                      sx={{
-                        width: 120,
-                        height: 120,
-                        mx: "auto",
-                        border: "3px solid rgba(99,102,241,0.5)",
-                        boxShadow: "0 0 30px rgba(99,102,241,0.3)",
-                      }}
-                    >
-                      <ImageWithFallback
-                        src="https://images.unsplash.com/photo-1752738372136-2602aaafdcb7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjBwb3J0cmFpdCUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90JTIwdGVjaHxlbnwxfHx8fDE3NzU1NTA2NzN8MA&ixlib=rb-4.1.0&q=80&w=400"
-                        alt="Jhon Ace"
-                        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      />
-                    </Avatar>
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        bottom: 4,
-                        right: 4,
-                        width: 18,
-                        height: 18,
-                        borderRadius: "50%",
-                        background: "#34d399",
-                        border: "2px solid #0a0a1a",
-                        boxShadow: "0 0 8px #34d399",
-                      }}
-                    />
-                  </Box>
+              <CustomCard gradient sx={{ height: "100%" }}>
+                <Box sx={{ textAlign: "center", mb: 1.5, p: 3}}>
+                  <Box
+                    component="img"
+                    src={profileImage}
+                    alt="Jhon Ace Sasutona"
+                    sx={{
+                      width: 110,
+                      height: 110,
+                      borderRadius: "14px",
+                      mx: "auto",
+                      mb: 1.4,
+                      objectFit: "cover",
+                      objectPosition: "center 18%",
+                      border: "1px solid rgba(157, 181, 255, 0.45)",
+                      outline: "1px solid rgba(121, 145, 220, 0.22)",
+                      outlineOffset: "4px",
+                      boxShadow: "0 16px 32px rgba(10, 16, 50, 0.35)",
+                    }}
+                  />
                   <Typography variant="h5" fontWeight={700} sx={{ mb: 0.5 }}>
                     Jhon Ace Sasutona
                   </Typography>
@@ -238,14 +251,15 @@ const AboutSection: React.FC = () => {
             </motion.div>
           </Grid>
 
-          {/* Right: Timeline & Highlights */}
-          <Grid size={{ xs: 12, md: 7 }}>
+          {/* Right: Timeline */}
+          <Grid size={{ xs: 12, md: 7 }} sx={{ display: "flex" }}>
             {/* Timeline */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
+              style={{ width: "100%" }}
             >
               <Typography
                 variant="h6"
@@ -254,7 +268,7 @@ const AboutSection: React.FC = () => {
               >
                 My Journey
               </Typography>
-              <Box sx={{ position: "relative", mb: 5 }}>
+              <Box sx={{ position: "relative", mb: 0 }}>
                 {/* Timeline Line */}
                 <Box
                   sx={{
@@ -344,58 +358,171 @@ const AboutSection: React.FC = () => {
                 </Box>
               </Box>
             </motion.div>
+          </Grid>
+        </Grid>
 
-            {/* Highlights Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+        {/* Full-width Highlights Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <Box
+            sx={{
+              mt: { xs: 6, md: 8 },
+              p: { xs: 2, md: 3 },
+              maxWidth: "1020px",
+              mx: "auto",
+            }}
+          >
+            <Typography
+              variant="h6"
+              fontWeight={800}
+              sx={{
+                mb: 0.8,
+                color: "#f1f5f9",
+                fontSize: { xs: "1.6rem", md: "2rem" },
+                letterSpacing: "-0.02em",
+                textAlign: "center",
+              }}
             >
-              <Typography variant="h6" fontWeight={700} sx={{ mb: 2.5, color: "#f1f5f9" }}>
-                What Defines Me
-              </Typography>
-              <Grid container spacing={2}>
-                {highlights.map((h, i) => (
-                  <Grid key={h.label} size={{ xs: 6 }}>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.1 }}
+              What Defines Me
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                mb: 2.8,
+                color: "rgba(173, 186, 229, 0.78)",
+                textAlign: "center",
+              }}
+            >
+              The work style and values I bring to every product I build.
+            </Typography>
+            <Grid container spacing={2}>
+              {highlights.map((h, i) => (
+                <Grid key={h.label} size={{ xs: 12, sm: 6 }}>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                  >
+                    <Box
+                      sx={{
+                        p: { xs: 2.1, md: 2.5 },
+                        minHeight: { xs: 168, md: 182 },
+                        background:
+                          "linear-gradient(145deg, rgba(12,14,42,0.92) 0%, rgba(8,10,34,0.88) 100%)",
+                        border: "1px solid rgba(99,102,241,0.2)",
+                        borderRadius: "18px",
+                        textAlign: "left",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        position: "relative",
+                        overflow: "hidden",
+                        transition: "all 0.3s ease",
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          inset: 0,
+                          background:
+                            "linear-gradient(120deg, rgba(255,255,255,0.08), rgba(255,255,255,0) 40%)",
+                          opacity: 0.35,
+                          pointerEvents: "none",
+                        },
+                        "&::after": {
+                          content: '""',
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "2px",
+                          background: `linear-gradient(90deg, ${h.tone}, transparent 70%)`,
+                          opacity: 0.8,
+                        },
+                        "&:hover": {
+                          border: `1px solid ${h.tone}66`,
+                          boxShadow: `0 14px 40px ${h.tone}22`,
+                          transform: "translateY(-3px)",
+                        },
+                      }}
                     >
-                      <Box
-                        sx={{
-                          p: 2,
-                          background: "rgba(15,15,40,0.6)",
-                          border: "1px solid rgba(99,102,241,0.12)",
-                          borderRadius: "14px",
-                          textAlign: "center",
-                          transition: "all 0.3s ease",
-                          "&:hover": {
-                            border: "1px solid rgba(99,102,241,0.3)",
-                            background: "rgba(99,102,241,0.08)",
-                            transform: "translateY(-3px)",
-                          },
-                        }}
-                      >
-                        <Typography sx={{ fontSize: "2rem", mb: 0.5 }}>
+                      <Box sx={{ position: "relative", zIndex: 1 }}>
+                        <Box
+                          sx={{
+                            width: 44,
+                            height: 44,
+                            borderRadius: "12px",
+                            display: "grid",
+                            placeItems: "center",
+                            mb: 1.5,
+                            fontSize: "1.5rem",
+                            background: `${h.tone}20`,
+                            border: `1px solid ${h.tone}55`,
+                            boxShadow: `0 0 18px ${h.tone}30`,
+                          }}
+                        >
                           {h.icon}
-                        </Typography>
-                        <Typography variant="subtitle2" fontWeight={700} sx={{ mb: 0.3 }}>
+                        </Box>
+                        <Typography
+                          variant="subtitle1"
+                          fontWeight={800}
+                          sx={{ mb: 0.6, color: "#f8fafc", letterSpacing: "-0.01em" }}
+                        >
                           {h.label}
                         </Typography>
-                        <Typography variant="caption" color="text.secondary">
+                        <Typography
+                          variant="body2"
+                          sx={{ color: "rgba(182, 194, 226, 0.86)", lineHeight: 1.7 }}
+                        >
                           {h.desc}
                         </Typography>
                       </Box>
-                    </motion.div>
-                  </Grid>
-                ))}
-              </Grid>
-            </motion.div>
-          </Grid>
-        </Grid>
+
+                      <Box
+                        sx={{
+                          position: "relative",
+                          zIndex: 1,
+                          mt: 1.6,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "0.72rem",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.08em",
+                            color: "rgba(164, 177, 214, 0.75)",
+                          }}
+                        >
+                          Strength
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: "0.76rem",
+                            px: 1,
+                            py: 0.35,
+                            borderRadius: "999px",
+                            color: h.tone,
+                            border: `1px solid ${h.tone}55`,
+                            background: `${h.tone}14`,
+                            fontWeight: 700,
+                          }}
+                        >
+                          {h.stat}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </motion.div>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+        </motion.div>
       </Box>
     </Box>
   );
